@@ -40,22 +40,6 @@ function createFeatures(earthquakeData) {
     }
   }
 
-  // Add legend
-  var legend = L.control({position: "bottomright"});
-  legend.onAdd = function() {
-    var div = L.DomUtil.create("div", "info legend"),
-    depth = [-10, 10, 30, 50, 70, 90];
-        
-    div.innerHTML += "<h3 style='text-align: center'>Depth</h3>"
-  for (var i =0; i < depth.length; i++) {
-    div.innerHTML += 
-    '<i style="background:' + chooseColor(depth[i] + 1) + '"></i> ' +
-        depth[i] + (depth[i + 1] ? '&ndash;' + depth[i + 1] + '<br>' : '+');
-      }
-    return div;
-  };
-  
-  
   // Create a GeoJSON layer that contains the features array on the earthquakeData object.
   // Run the onEachFeature function once for each piece of data in the array.
   var earthquakes = L.geoJSON(earthquakeData, {
@@ -100,7 +84,7 @@ function createMap(earthquakes) {
     center: [
       37.09, -95.71
     ],
-    zoom: 5,
+    zoom: 2,
     layers: [grayscale, earthquakes]
   });
   
@@ -111,6 +95,21 @@ function createMap(earthquakes) {
     collapsed: false
   }).addTo(myMap);
 
+  // Add legend
+  var legend = L.control({position: "bottomright"});
+  legend.onAdd = function() {
+    var div = L.DomUtil.create("div", "info legend"),
+    depth = [-10, 10, 30, 50, 70, 90];
+        
+    div.innerHTML += "<h3 style='text-align: center'>Depth</h3>"
+  for (var i =0; i < depth.length; i++) {
+    div.innerHTML += 
+    '<i style="background:' + chooseColor(depth[i] + 1) + '"></i> ' +
+        depth[i] + (depth[i + 1] ? '&ndash;' + depth[i + 1] + '<br>' : '+');
+      }
+    return div;
+  };
   legend.addTo(myMap);
+
 }
   
