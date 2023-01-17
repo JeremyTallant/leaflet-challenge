@@ -89,8 +89,8 @@ function createMap(earthquakes) {
   // Pass it our grayscale and overlayMaps.
   // Add the layer control to the map.
   L.control.layers(overlayMaps, {
-    collapsed: false
-  }).addTo(myMap);
+    collapsed: false})
+  .addTo(myMap);
 
   // Fit the map to the extent of the earthquakes layer
   myMap.fitBounds(earthquakes.getBounds());
@@ -111,5 +111,5 @@ function createMap(earthquakes) {
   };
   legend.addTo(myMap);
 
-}
+};
   
