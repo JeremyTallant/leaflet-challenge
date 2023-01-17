@@ -87,7 +87,7 @@ function createMap(earthquakes) {
     maxZoom: 18,
     zoomOffset: -1,
     id: "mapbox/light-v10",
-    accessToken: api_key
+    accessToken: "pk.eyJ1IjoidGFsbGFudGo5NSIsImEiOiJjbGQwYmY4bzQwb3ZoM3Btb2kwc3Y4d3YyIn0.f1PLE4RCVxOkoOO0GMZppQ"
   });
   
   // Create an overlay object to hold our overlay.
