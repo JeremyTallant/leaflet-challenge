@@ -44,6 +44,7 @@ function createFeatures(earthquakeData) {
   // Create a GeoJSON layer that contains the features array on the earthquakeData object.
   // Run the onEachFeature function once for each piece of data in the array.
   var earthquakes = L.geoJSON(earthquakeData, {
+    onEachFeature: onEachFeature,
     pointToLayer: function (feature, latlng) {
       return L.circleMarker(latlng, 
         // Set the style of the markers based on properties.mag
