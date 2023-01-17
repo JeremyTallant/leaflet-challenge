@@ -91,7 +91,7 @@ function createMap(earthquakes) {
   // Create a layer control.
   // Pass it our grayscale and overlayMaps.
   // Add the layer control to the map.
-  L.control.layers(grayscale, overlayMaps, {
+  L.control.layers(overlayMaps, {
     collapsed: false
   }).addTo(myMap);
 
