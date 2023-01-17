@@ -8,6 +8,28 @@ d3.json(queryUrl).then(function (data) {
   createFeatures(data.features);
 });
 
+// Determine the marker size by magnitude
+function markerSize(magnitude) {
+  return magnitude * 4;
+};
+// Determine the marker color by depth
+function chooseColor(depth) {
+  switch(true) {
+    case depth > 90:
+      return "red";
+    case depth > 70:
+      return "orangered";
+    case depth > 50:
+      return "orange";
+    case depth > 30:
+      return "gold";
+    case depth > 10:
+      return "yellow";
+    default:
+      return "lightgreen";
+  }
+}
+
 function createFeatures(earthquakeData) {
 
   // Define a function that we want to run once for each feature in the features array.
@@ -16,28 +38,7 @@ function createFeatures(earthquakeData) {
     layer.bindPopup(`<h3>${feature.properties.place}</h3><hr><p>${new Date(feature.properties.time)}</p><p>Magnitude:${feature.properties.mag}</p>`);
     // Console log the feature properties
       console.log(feature);
-  }
-
-  // Determine the marker size by magnitude
-  function markerSize(magnitude) {
-    return magnitude * 4;
-  };
-  // Determine the marker color by depth
-  function chooseColor(depth) {
-    switch(true) {
-      case depth > 90:
-        return "red";
-      case depth > 70:
-        return "orangered";
-      case depth > 50:
-        return "orange";
-      case depth > 30:
-        return "gold";
-      case depth > 10:
-        return "yellow";
-      default:
-        return "lightgreen";
-    }
+  
   }
 
   // Create a GeoJSON layer that contains the features array on the earthquakeData object.
@@ -56,7 +57,6 @@ function createFeatures(earthquakeData) {
         }
       );
     },
-    onEachFeature: onEachFeature
   });
   // Send our earthquakes layer to the createMap function/
   createMap(earthquakes);
@@ -65,15 +65,13 @@ function createFeatures(earthquakeData) {
 function createMap(earthquakes) {
 
   // Create the base layer
-  var grayscale = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
-    attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
-    tileSize: 512,
+  var grayscale = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
-    zoomOffset: -1,
-    id: "mapbox/light-v10",
+    id: 'mapbox/streets-v11',
     accessToken: "pk.eyJ1IjoidGFsbGFudGo5NSIsImEiOiJjbGQwYmY4bzQwb3ZoM3Btb2kwc3Y4d3YyIn0.f1PLE4RCVxOkoOO0GMZppQ"
   });
-  
+   
   // Create an overlay object to hold our overlay.
   var overlayMaps = {
     Earthquakes: earthquakes
