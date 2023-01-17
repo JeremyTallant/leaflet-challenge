@@ -66,8 +66,10 @@ function createMap(earthquakes) {
 
   // Create the base layer
   var grayscale = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    attribution: attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
+    tileSize: 512,
     maxZoom: 18,
+    zoomOffset: -1,
     id: 'mapbox/streets-v11',
     accessToken: "pk.eyJ1IjoidGFsbGFudGo5NSIsImEiOiJjbGQwYmY4bzQwb3ZoM3Btb2kwc3Y4d3YyIn0.f1PLE4RCVxOkoOO0GMZppQ"
   });
@@ -79,10 +81,6 @@ function createMap(earthquakes) {
   
   // Create our map, giving it the streetmap and earthquakes layers to display on load.
   var myMap = L.map("map", {
-    center: [
-      37.09, -95.71
-    ],
-    zoom: 2,
     layers: [grayscale, earthquakes]
   });
   
@@ -92,6 +90,9 @@ function createMap(earthquakes) {
   L.control.layers(overlayMaps, {
     collapsed: false
   }).addTo(myMap);
+
+  // Fit the map to the extent of the earthquakes layer
+  myMap.fitBounds(earthquakes.getBounds());
 
   // Add legend
   var legend = L.control({position: "bottomright"});
