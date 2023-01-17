@@ -54,7 +54,7 @@ function createFeatures(earthquakeData) {
       }
     return div;
   };
-  legend.addTo(myMap);
+  
   
   // Create a GeoJSON layer that contains the features array on the earthquakeData object.
   // Run the onEachFeature function once for each piece of data in the array.
@@ -110,5 +110,7 @@ function createMap(earthquakes) {
   L.control.layers(grayscale, overlayMaps, {
     collapsed: false
   }).addTo(myMap);
+
+  legend.addTo(myMap);
 }
   
