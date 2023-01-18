@@ -81,13 +81,6 @@ function createMap(earthquakes) {
     Earthquakes: earthquakes
   };
 
-  // Create a layer control.
-  // Pass it our overlayMaps.
-  // Add the layer control to the map.
-  L.control.layers(overlayMaps, {
-    collapsed: false
-  }).addTo(myMap);
-
   // Add legend
   var legend = L.control({position: "bottomright"});
   legend.onAdd = function() {
@@ -100,6 +93,13 @@ function createMap(earthquakes) {
     return div;
   };
   legend.addTo(myMap);
+
+  // Create a layer control.
+  // Pass it our overlayMaps.
+  // Add the layer control to the map.
+  L.control.layers(overlayMaps, {
+    collapsed: false
+  }).addTo(myMap);
 
 };
 
