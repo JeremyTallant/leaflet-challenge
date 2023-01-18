@@ -38,7 +38,7 @@ function createFeatures(earthquakeData) {
     onEachFeature: onEachFeature,
 
     // Point to layer used to alter markers
-    pointToLayer: function(feature, coordinates) {
+    pointToLayer: function(feature, latlng) {
 
       // Determine the style of markers based on properties
       var markers = {
@@ -49,7 +49,7 @@ function createFeatures(earthquakeData) {
         stroke: true,
         weight: 0.5
       }
-      return L.circle(coordinates,markers);
+      return L.circle(latlng,markers);
     }
   });
 
