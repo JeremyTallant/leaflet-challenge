@@ -11,7 +11,7 @@ d3.json(queryUrl).then(function (data) {
 
 // Function to determine marker size
 function markerSize(magnitude) {
-  return magnitude * 4;
+  return magnitude * 3000;
 };
 
 // Function to determine marker color by depth
@@ -29,7 +29,7 @@ function createFeatures(earthquakeData) {
   // Define a function that we want to run once for each feature in the features array.
   // Give each feature a popup that describes the place and time of the earthquake.
   function onEachFeature(feature, layer) {
-    layer.bindPopup(`<h3>${feature.properties.place}</h3><hr><p>${new Date(feature.properties.time)}</p><p>${feature.properties.mag}</p><p>${feature.geometry.coordinates[2]}</p>`);
+    layer.bindPopup(`<h3>Location:${feature.properties.place}</h3><hr><p>Date:${new Date(feature.properties.time)}</p><p>Magnitude:${feature.properties.mag}</p><pDepth${feature.geometry.coordinates[2]}</p>`);
   }
 
   // Create a GeoJSON layer that contains the features array on the earthquakeData object.
@@ -62,7 +62,7 @@ function createMap(earthquakes) {
   // Create tile layer
   var grayscale = L.tileLayer('https://api.mapbox.com/styles/v1/{style}/tiles/{z}/{x}/{y}?access_token={access_token}', {
     attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
-    style:    'mapbox/dark-v11',
+    style:    'mapbox/light-v11',
     access_token: api_key
   });
 
@@ -91,11 +91,11 @@ function createMap(earthquakes) {
   // Add legend
   var legend = L.control({position: "bottomright"});
   legend.onAdd = function() {
-    var div = L.DomUtil.create("div", "info legend"),
-    depth = [-10, 10, 30, 50, 70, 90];
+    var div = L.DomUtil.create("div", "legend");
+    var depth = [-10, 10, 30, 50, 70, 90];
     
     div.innerHTML += "<h3 style='text-align: center'>Depth</h3>"
-  for (var i =0; i < depth.length; i++) {
+  for (i =0; i < depth.length; i++) {
     div.innerHTML += 
     '<i style="background:' + chooseColor(depth[i] + 1) + '"></i> ' +
         depth[i] + (depth[i + 1] ? '&ndash;' + depth[i + 1] + '<br>' : '+');
