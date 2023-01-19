@@ -106,12 +106,12 @@ function createMap(earthquakes) {
         "Tectonic Plates": tectonicPlates
     };
     
-    // Create our map, giving it the grayscale map and earthquakes layers to display on load.
+    // Create our map, giving it the satellite map and earthquakes layers to display on load.
   var myMap = L.map("map", {
     center: [
       37.09, -95.71
     ],
-    zoom: 10,
+    zoom: 2,
     layers: [satellite, earthquakes]
   });
 
