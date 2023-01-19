@@ -1,27 +1,43 @@
-/* Remove the default margin and padding from the body. */
 body {
   padding: 0;
   margin: 0;
 }
 
-/* Set map, body, and html to 100% of the screen size. */
 #map,
 body,
 html {
   height: 100%;
 }
 
-/* Legend */
+/* Set Legend Style */
+.info {
+  padding: 1px 10px;
+  background: #ebfae2;
+  border-radius: 5px;
+}
+
 .legend {
-  padding: 6px 8px;
-  background: white;
-  background: rgba(255, 255, 255, 0.8);
+  line-height: 25px;
+  color: #000000;
 }
 
 .legend i {
-  width: 18px;
-  height: 18px;
-  float: left;
-  margin: 0 8px 0 0;
-  opacity: 0.7;
+  width: 20px;
+  height: 20px;
+  float: right;
+  margin-right: 10px;
+  margin-left: 10px;
+  opacity: 0.75;
+}
+
+h3 {
+  margin: 0px;
+  padding: 2px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+  margin: -5px;
+  padding: -6px;
+  font-family: Arial, Helvetica, sans-serif;
 }
