@@ -16,12 +16,12 @@ function markerSize(magnitude) {
 
 // Function to determine marker color by depth
 function chooseColor(depth){
-  if (depth < 10) return "#78f100";
+  if (depth < 10) return "#00FF00";
   else if (depth < 30) return "#dcf400";
   else if (depth < 50) return "#f7db11";
   else if (depth < 70) return "#fdb72a";
   else if (depth < 90) return "#fca35d";
-  else return "#ff5f65";
+  else return "#FF0000";
 }
 
 function createFeatures(earthquakeData) {
@@ -68,10 +68,10 @@ function createMap(earthquakes) {
 
   // Create our map, giving it the grayscale map and earthquakes layers to display on load.
   var myMap = L.map("map", {
-    center: [
+    center: ([
       37.09, -95.71
-    ],
-    zoom: 50,
+    ],14),
+    zoom: 15,
     layers: [grayscale, earthquakes]
   });
 
