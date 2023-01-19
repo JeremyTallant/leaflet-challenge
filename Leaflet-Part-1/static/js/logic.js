@@ -1,7 +1,7 @@
 // Store our API endpoint as queryUrl.
 var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
 
-// Perform a GET request to the query URL/
+// Perform a GET request to the query URL
 d3.json(queryUrl).then(function (data) {
   // Console log the data retrieved 
   console.log(data);
@@ -17,10 +17,10 @@ function markerSize(magnitude) {
 // Function to determine marker color by depth
 function chooseColor(depth){
   if (depth < 10) return "#00FF00";
-  else if (depth < 30) return "#greenyellow";
-  else if (depth < 50) return "#yellow";
-  else if (depth < 70) return "#orange";
-  else if (depth < 90) return "#orangered";
+  else if (depth < 30) return "greenyellow";
+  else if (depth < 50) return "yellow";
+  else if (depth < 70) return "orange";
+  else if (depth < 90) return "orangered";
   else return "#FF0000";
 }
 
