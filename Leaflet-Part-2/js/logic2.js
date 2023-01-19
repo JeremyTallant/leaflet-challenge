@@ -38,7 +38,7 @@ function createFeatures(earthquakeData) {
 
       // Determine the style of markers based on properties
       var markers = {
-        radius: feature.properties.mag ** 2,
+        radius: feature.properties.mag * 20000,
         fillColor: chooseColor(feature.geometry.coordinates[2]),
         fillOpacity: 0.7,
         color: "black",
@@ -105,7 +105,7 @@ function createMap(earthquakes) {
     center: [
       37.09, -95.71
     ],
-    zoom: 7,
+    zoom: 4,
     layers: [satellite, earthquakes, tectonicPlates]
   });
 
