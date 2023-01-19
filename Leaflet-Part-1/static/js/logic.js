@@ -17,10 +17,10 @@ function markerSize(magnitude) {
 // Function to determine marker color by depth
 function chooseColor(depth){
   if (depth < 10) return "#00FF00";
-  else if (depth < 30) return "#dcf400";
-  else if (depth < 50) return "#f7db11";
-  else if (depth < 70) return "#fdb72a";
-  else if (depth < 90) return "#fca35d";
+  else if (depth < 30) return "#greenyellow";
+  else if (depth < 50) return "#yellow";
+  else if (depth < 70) return "#orange";
+  else if (depth < 90) return "#orangered";
   else return "#FF0000";
 }
 
@@ -62,7 +62,7 @@ function createMap(earthquakes) {
   // Create tile layer
   var grayscale = L.tileLayer('https://api.mapbox.com/styles/v1/{style}/tiles/{z}/{x}/{y}?access_token={access_token}', {
     attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
-    tilesize: 512,
+    tileSize: 512,
     maxZoom: 18,
     zoomOffset: -1,
     style:    'mapbox/light-v11',
@@ -74,7 +74,7 @@ function createMap(earthquakes) {
     center: [
       37.09, -95.71
     ],
-    zoom: 15,
+    zoom: 10,
     layers: [grayscale, earthquakes]
   });
 
