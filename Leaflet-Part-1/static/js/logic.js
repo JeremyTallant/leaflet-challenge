@@ -68,9 +68,9 @@ function createMap(earthquakes) {
 
   // Create our map, giving it the grayscale map and earthquakes layers to display on load.
   var myMap = L.map("map", {
-    center: ([
+    center: [
       37.09, -95.71
-    ],14),
+    ],
     zoom: 15,
     layers: [grayscale, earthquakes]
   });
