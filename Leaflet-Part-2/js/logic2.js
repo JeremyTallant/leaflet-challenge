@@ -90,7 +90,7 @@ function createMap(earthquakes) {
     // Create a baseMaps object.
     var baseMaps = {
         "Satellite": satellite,
-        "GrayScale": grayscale,
+        "Grayscale": grayscale,
         "Outdoors": outdoors
     };
 
@@ -105,7 +105,7 @@ function createMap(earthquakes) {
     center: [
       37.09, -95.71
     ],
-    zoom: 4,
+    zoom: 5,
     layers: [satellite, earthquakes, tectonicPlates]
   });
 
