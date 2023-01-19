@@ -84,16 +84,21 @@ function createMap(earthquakes) {
   // Add legend
   var legend = L.control({position: "bottomright"});
   legend.onAdd = function() {
-    var div = L.DomUtil.create("div", "legend");
-    var depth_values = [-10, 10, 30, 50, 70, 90];
-    var depth_colors = ["#78f100", "#dcf400", "#f7db11", "#fdb72a", "#fca35d", "#ff5f65"];
-    for (var i = 0; i < depth_values.length; i++) {
-      div.innerHTML += '<div class="legend-item"><i style="background:' + depth_colors[i] + '"></i>' + depth_values[i] + '</div>';
+    var div = L.DomUtil.create("div", "info legend"),
+    depth = [-10, 10, 30, 50, 70, 90];
+
+    div.innerHTML += "h3 style = 'text-align: center'>Depth</h3"
+
+    for (var i = 0; i < depth.length; i++) {
+      div.innerHTML +=
+      '<i style="background:' + chooseColor(depth[i] + 1) + '"></i> ' + depth[i] + (depth[i + 1] ? '&ndash;' + depth[i + 1] + '<br>' : '+');
     }
     return div;
   };
-  legend.addTo(myMap);
+  legend.addTo(myMap)
 
+
+  
   // Create a layer control.
   // Pass it our overlayMaps.
   // Add the layer control to the map.
