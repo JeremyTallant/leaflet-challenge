@@ -11,7 +11,7 @@ d3.json(queryUrl).then(function (data) {
 
 // Function to determine marker size
 function markerSize(magnitude) {
-  return magnitude * 10000;
+  return magnitude * 7000;
 };
 
 // Function to determine marker color by depth
