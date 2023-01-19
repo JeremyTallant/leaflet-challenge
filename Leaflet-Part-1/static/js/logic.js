@@ -71,7 +71,7 @@ function createMap(earthquakes) {
     center: [
       37.09, -95.71
     ],
-    zoom: 15,
+    zoom: 2,
     layers: [grayscale, earthquakes]
   });
 
@@ -81,7 +81,7 @@ function createMap(earthquakes) {
     var div = L.DomUtil.create("div", "info legend"),
     depth = [-10, 10, 30, 50, 70, 90];
 
-    div.innerHTML += "<h3 style='text-align: center'>Depth</h3"
+    div.innerHTML += "<h3 style='text-align: center'>Depth</h3>"
 
     for (var i = 0; i < depth.length; i++) {
       div.innerHTML +=
