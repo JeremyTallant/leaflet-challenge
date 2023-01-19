@@ -10,11 +10,6 @@ d3.json(queryUrl).then(function (data) {
   createFeatures(data.features);
 });
 
-// Function to determine marker size
-function markerSize(magnitude) {
-  return magnitude * 20000;
-};
-
 // Function to determine marker color by depth
 function chooseColor(depth){
   if (depth < 10) return "#00FF00";
@@ -43,11 +38,10 @@ function createFeatures(earthquakeData) {
 
       // Determine the style of markers based on properties
       var markers = {
-        radius: markerSize(feature.properties.mag),
+        radius: feature.properties.mag ** 2,
         fillColor: chooseColor(feature.geometry.coordinates[2]),
         fillOpacity: 0.7,
         color: "black",
-        stroke: true,
         weight: 0.5
       }
       return L.circle(latlng,markers);
@@ -111,7 +105,7 @@ function createMap(earthquakes) {
     center: [
       37.09, -95.71
     ],
-    zoom: 5,
+    zoom: 7,
     layers: [satellite, earthquakes, tectonicPlates]
   });
 
