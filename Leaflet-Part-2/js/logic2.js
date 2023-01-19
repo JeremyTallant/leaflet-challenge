@@ -12,7 +12,7 @@ d3.json(queryUrl).then(function (data) {
 
 // Function to determine marker size
 function markerSize(magnitude) {
-  return magnitude * 20000;
+  return magnitude * 4;
 };
 
 // Function to determine marker color by depth
@@ -111,7 +111,7 @@ function createMap(earthquakes) {
     center: [
       37.09, -95.71
     ],
-    zoom: 2,
+    zoom: 50,
     layers: [satellite, earthquakes, tectonicPlates]
   });
 
