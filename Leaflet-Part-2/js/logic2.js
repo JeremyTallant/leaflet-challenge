@@ -12,7 +12,7 @@ d3.json(queryUrl).then(function (data) {
 
 // Function to determine marker size
 function markerSize(magnitude) {
-  return magnitude * 100;
+  return magnitude * 2000;
 };
 
 // Function to determine marker color by depth
@@ -64,25 +64,18 @@ function createMap(earthquakes) {
   var satellite = L.tileLayer('https://api.mapbox.com/styles/v1/{style}/tiles/{z}/{x}/{y}?access_token={access_token}', {
     attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
     style:    'mapbox/satellite-v9',
-    maxZoom: 18,
     access_token: api_key
   });
   
   var grayscale = L.tileLayer('https://api.mapbox.com/styles/v1/{style}/tiles/{z}/{x}/{y}?access_token={access_token}', {
     attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
     style:    'mapbox/light-v11',
-    maxZoom: 18,
-    tileSize: 512,
-    zoomOffest: -1,
     access_token: api_key
   });
 
   var outdoors = L.tileLayer('https://api.mapbox.com/styles/v1/{style}/tiles/{z}/{x}/{y}?access_token={access_token}', {
     attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
     style:    'mapbox/outdoors-v12',
-    maxZoom: 18,
-    tileSize: 512,
-    zoomOffest: -1,
     access_token: api_key
   });
 
@@ -118,7 +111,7 @@ function createMap(earthquakes) {
     center: [
       37.09, -95.71
     ],
-    zoom: 2,
+    zoom: 5,
     layers: [satellite, earthquakes, tectonicPlates]
   });
 
