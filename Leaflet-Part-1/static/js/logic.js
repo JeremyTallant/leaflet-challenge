@@ -66,7 +66,6 @@ function createMap(earthquakes) {
     access_token: api_key
   });
 
-
   // Create our map, giving it the grayscale map and earthquakes layers to display on load.
   var myMap = L.map("map", {
     center: [
@@ -75,11 +74,6 @@ function createMap(earthquakes) {
     zoom: 2,
     layers: [grayscale, earthquakes]
   });
-
-  // Create an overlay object to hold our overlay.
-  var overlayMaps = {
-    Earthquakes: earthquakes
-  };
 
   // Add legend
   var legend = L.control({position: "bottomright"});
@@ -96,16 +90,6 @@ function createMap(earthquakes) {
     return div;
   };
   legend.addTo(myMap)
-
-
-  
-  // Create a layer control.
-  // Pass it our overlayMaps.
-  // Add the layer control to the map.
-  L.control.layers(overlayMaps, {
-    collapsed: false
-  }).addTo(myMap);
-
 };
 
 
