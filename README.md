@@ -61,6 +61,12 @@ Perform the following tasks:
 
   * Add layer controls to your map.
   
+## File Organization and Structure
+* Located in the parent directory are three folders and the [index.html](https://github.com/tallantj95/leaflet-challenge/blob/main/index.html) file
+* The [Leaflet-Part-1](https://github.com/tallantj95/leaflet-challenge/tree/main/Leaflet-Part-1) folder contains a [js](https://github.com/tallantj95/leaflet-challenge/tree/main/Leaflet-Part-1/js) folder that houses the [config.js](https://github.com/tallantj95/leaflet-challenge/blob/main/Leaflet-Part-1/js/config.js) and the [logic.js](https://github.com/tallantj95/leaflet-challenge/blob/main/Leaflet-Part-1/js/logic.js) files for part one of the challenge
+* The [Leaflet-Part-2](https://github.com/tallantj95/leaflet-challenge/tree/main/Leaflet-Part-2) folder contains a [js](https://github.com/tallantj95/leaflet-challenge/tree/main/Leaflet-Part-2/js) folder that houses the [logic2.js](https://github.com/tallantj95/leaflet-challenge/blob/main/Leaflet-Part-2/js/logic2.js) file for part two of the challenge
+* The [css](https://github.com/tallantj95/leaflet-challenge/tree/main/css) folder contains the [style.css](https://github.com/tallantj95/leaflet-challenge/blob/main/css/style.css) file for styling of the map
+
 ## References
 Dataset created by [the United States Geological Survey]()
 
